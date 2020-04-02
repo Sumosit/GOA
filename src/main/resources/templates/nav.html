@@ -1,0 +1,28 @@
+<th:block xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:th="https://www.thymeleaf.org"
+          xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+          th:fragment="nav">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+
+    <nav style="position: fixed;" role='navigation' id="mainnav">
+        <br><br><br>
+        <ul class="gap">
+            <li th:if="${user != null}"><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" th:href="@{/profile}"
+                   th:text="${user.getUsername()}"></a></li>
+            <li><a sec:authorize="hasAnyRole('ROLE_MODER', 'ROLE_ADMIN')" th:href="@{/admin}" th:text="#{nav.admin}"></a></li>
+            <li><a sec:authorize="hasAnyRole('ROLE_MODER', 'ROLE_ADMIN')" th:href="@{/addanime}" th:text="#{nav.addanime}"></a></li>
+            <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/home" th:text="#{nav.home}"></a></li>
+            <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/bookmark" th:text="#{nav.bookmark}"></a></li>
+            <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/friends" th:text="#{nav.friends}"></a></li>
+            <li><a href="/login" th:text="#{nav.login}"></a></li>
+            <li><a href="/register" th:text="#{nav.register}"></a></li>
+        </ul>
+    </nav>
+
+    <div class="hamb" style="position: fixed;">
+        <a><i class="fa fa-bars js-button"></i></a>
+    </div>
+
+    <script type="text/javascript" src="/js/show.js"></script>
+</th:block>

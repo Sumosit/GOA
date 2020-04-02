@@ -1,0 +1,21 @@
+.home > .grid-container {
+    display: table;
+    grid-template-columns: repeat(auto-fit, minmax(16%, 1fr));
+    grid-gap: 15px;
+    padding: 0 5% 5% 5%;
+    margin-top: 0;
+}
+
+.home > .grid-container > div {
+    background-color: rgba(48, 0, 3, 0);
+    padding: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    max-width: 16%;
+    font-size: 1.2vw;
+    color: #eaeaea;
+}
+
+.home > .grid-container > div > span {
+}

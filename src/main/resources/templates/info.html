@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${anime.getName()}"></title>
+    <link th:href="@{/css/default.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/tooltip.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/nav.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/info.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/tabs.css}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div th:insert="nav.html :: nav"></div>
+<div class="hero">
+    <main>
+        <div class="w3-row">
+            <div class="m8 w3-col">
+                <div class="item1">
+                    <div class="title"><span th:text="${anime.getName()}"></span></div>
+                    <div class="history"><span th:utext="${anime.getHistory()}"></span></div>
+                    <div class="date-genre">
+                        <div class="date"><span>Дата выпуска: </span><span th:text="${anime.getDate()}"></span>
+                        </div>
+                        <div class="date"><span>Жанры: </span><span th:text="${anime.getGenre()}"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="m4 w3-col">
+                <div class="item2">
+                    <img th:src="${anime.getImage()}">
+                </div>
+            </div>
+            <div class="m12 w3-col">
+                <div class="item3">
+                    <div class="tabs">
+                        <div th:each="v : ${video}" class="tab">
+                            <input type="radio" th:id="${v.getSeason()}" name="tab-group" checked>
+                            <label th:for="${v.getSeason()}" th:text="'Season ' + ${v.getSeason()}"
+                                   class="tab-title"></label>
+                            <section class="tab-content">
+                                <div class="w3-row">
+                                    <a th:each="i : ${#numbers.sequence(v.getStart(), v.getSeries())}"
+                                       th:href="@{/video/{id_anime}/{id_season}/{id_ep}(id_anime=${anime.getId()}, id_season=${v.getSeason()}, id_ep=${i})}"
+                                       class="m2 w3-col">
+                                        <div>
+                                            <span th:text="${i}"></span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<div th:insert="bubble :: bubble"></div>
+</body>
+</html>

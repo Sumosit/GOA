@@ -1,0 +1,165 @@
+html {
+    overflow-y: scroll;
+}
+
+main {
+    width: 1700px;
+}
+
+.player-title {
+    padding: 0 20px;
+    height: 100px;
+    width: 100%;
+}
+
+.player-title > .player-name {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.player-title > .player-name > span {
+    float: left;
+    color: white;
+    font-size: 40px;
+    font-family: PathwayGothicOne-Regular, sans-serif;
+}
+
+.player-title .buttons {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    padding: 30px;
+    display: inline-block;
+}
+
+.player-title .buttons > a {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #eaeaea;
+    border: 2px solid #eaeaea;
+    border-radius: 5px;
+    width: 20%;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.player {
+    height: 740px;
+    padding: 20px;
+}
+
+.player-video {
+    height: 100%;
+}
+
+.player-list {
+    margin-right: auto;
+    margin-left: auto;
+    width: 60%;
+    height: 740px;
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.player-list > a {
+    text-decoration: none;
+    padding: 0.3%;
+}
+
+.player-series:hover > span {
+    animation: rotating 1s linear;
+}
+
+.player-series {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #eaeaea;
+    border: 2px solid #eaeaea;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-series:hover {
+    border-color: rgba(255, 192, 203, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 20px rgba(255, 255, 255, 0.9);
+    outline: 0 none;
+}
+
+.player-series > span {
+    font-size: 30px;
+}
+
+.comments {
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.comment {
+    border-bottom: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+}
+
+.com-name, .com-text, .com-date {
+    padding: 10px;
+    color: white;
+}
+
+.com-name {
+    font-size: 32px;
+    font-family: PathwayGothicOne-Regular, sans-serif;
+}
+
+.com-text {
+    font-family: Arial, sans-serif;
+}
+
+.com-date {
+    font-size: 12px;
+}
+
+.textbox {
+    width: 100%;
+    height: 200px;
+}
+
+.textbox textarea {
+    border: none;
+    outline: none;
+    background: none;
+    color: #eaeaea;
+    font-size: 18px;
+    width: 100%;
+    height: 300px;
+    float: left;
+    font-family: Arial, sans-serif;
+}
+
+.player-list::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+.player-list::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+/* Handle */
+.player-list::-webkit-scrollbar-thumb {
+    background: #ffffff;
+}

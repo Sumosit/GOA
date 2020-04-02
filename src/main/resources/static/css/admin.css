@@ -1,0 +1,9 @@
+table {
+    background-color: #eeeeda;
+    font-size: 25px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+td {
+    padding: 10px;
+}

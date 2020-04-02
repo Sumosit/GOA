@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/default.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/nav.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/friends.css}" rel="stylesheet" type="text/css"/>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div th:insert="nav.html :: nav"></div>
+<div class="hero">
+    <main>
+        <home>
+            <div class="w3-row">
+                <div class="w3-col m4">
+                    <header class="w3-col m12">
+                        <span th:text="#{friends.Your}"></span>
+                    </header>
+                    <div class="item1">
+                        <div class="friend-list">
+                            <div class="w3-row">
+                                <div th:each="f : ${user.getFriends()}" class="w3-col m12">
+                                    <div class="friend-list-items w3-row">
+                                        <span class="w3-col m12" th:text="${f.getUsername()}"></span>
+                                        <span class="w3-col m12" th:text="${f.getEmail()}"></span>
+                                        <a th:href="@{#}"><span th:id="join-chat-button-2"
+                                                                th:text="#{friends.writeMessage}"
+                                                                class="w3-col m12"></span></a>
+                                        <a th:href="@{/deletefriend/{id_user}(id_user = ${f.getId()})}"><span
+                                                th:text="#{friends.deleteFriend}" th:id="join-chat-button-2"
+                                                class="w3-col m12">Удалить из друзей</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-col m8">
+                    <div class="item2">
+                        <div class="friend-list">
+                            <div class="w3-row">
+                                <header class="w3-col m12">
+                                    <span th:text="#{friends.Peoples}"></span>
+                                </header>
+                                <div th:each="u : ${users}" class="w3-col m12">
+                                    <div class="friend-list-items w3-row">
+                                        <span class="w3-col m12" th:text="${u.getUsername()}"></span>
+                                        <span class="w3-col m12" th:text="${u.getEmail()}"></span>
+                                        <a th:href="@{#}"><span th:text="#{friends.writeMessage}"
+                                                                th:id="join-chat-button-2" class="w3-col m12">Написать сообщение</span></a>
+                                        <a th:href="@{/addfriend/{id_user}(id_user = ${u.getId()})}"><span
+                                                th:text="#{friends.addFriend}" th:id="join-chat-button-2"
+                                                class="w3-col m12">Добавить в друзья</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </home>
+    </main>
+</div>
+<div th:insert="bubble :: bubble"></div>
+</body>
+</html>

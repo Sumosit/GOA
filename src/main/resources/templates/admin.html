@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link th:href="@{/css/nav.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/info.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/register.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/admin.css}" rel="stylesheet" type="text/css"/>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+<div th:insert="nav.html :: nav"></div>
+<main>
+    <div class="hero">
+        <div class="w3-row">
+            <form th:action="@{/registerbyadmin}" th:object="${userForm}" method="post">
+                <div class="textbox">
+                    <label>
+                        <input type="email" placeholder="Email" name="email">
+                    </label>
+                </div>
+
+                <div class="textbox">
+                    <label>
+                        <input type="text" placeholder="Username" name="username">
+                    </label>
+                </div>
+
+                <div class="textbox">
+                    <label>
+                        <input type="password" placeholder="Password" name="password">
+                    </label>
+                </div>
+                <button type="submit" class="login-btn">Add User</button>
+                <div class="textbox" style="border: none;">
+                    <label>
+                        <span style="display: block;
+                                    text-align: center;
+                                    margin-top: 20px;
+                                    color: #ffc2ce;
+                                    font-size: 30px;
+                                    padding-top: 10px;
+                                    padding-bottom: 10px;
+                                    border-top: 2px dashed #ffc2ce;
+                                    border-bottom: 2px dashed #ffc2ce;" th:if="${error!=null}" th:utext="${error}"></span>
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="w3-col m12">
+            <table>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Status</td>
+                </tr>
+                <tr th:each="u : ${users}" th:id="'#'+${u.getId()}">
+                    <td th:if="${u.getIsActive()=='Active'}"><a class="nolink" th:text="${u.getIsActive()}" th:href="@{/admin/ban/{id}(id = ${u.getId()})}"></a></td>
+                    <td th:if="${u.getIsActive()=='Banned'}"><a class="nolink" th:text="${u.getIsActive()}" th:href="@{/admin/unban/{id}(id = ${u.getId()})}"></a></td>
+                    <td th:text="${u.getUsername()}"></td>
+                    <td th:text="${u.getEmail()}"></td>
+                    <td><a class="nolink" th:text="Delete" th:href="@{admin/delete/{id}(id = ${u.getId()})}"></a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</main>
+<div th:insert="bubble :: bubble"></div>
+</body>
+</html>

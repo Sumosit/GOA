@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link th:href="@{/css/nav.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/register.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet" type="text/css"/>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+<div th:insert="nav.html :: nav"></div>
+<div class="hero">
+    <div class="login-back">
+        <div class="login-box">
+            <h1>Profile</h1>
+            <form th:action="@{/saveemail/{id}(id = ${user.getId()})}" th:object="${userForm}" method="post">
+                <div class="textbox">
+                    <label>
+                        <input type="email" th:placeholder="${user.getEmail()}" name="email">
+                    </label>
+                </div>
+                <button type="submit" class="login-btn">Save Email</button>
+            </form>
+            <form th:action="@{/saveusername/{id}(id = ${user.getId()})}" th:object="${userForm}" method="post">
+                <div class="textbox">
+                    <label>
+                        <input type="text" th:placeholder="${user.getUsername()}" name="username">
+                    </label>
+                </div>
+                <button type="submit" class="login-btn">Save Username</button>
+            </form>
+            <form th:action="@{/savepassword/{id}(id = ${user.getId()})}" th:object="${userForm}" method="post">
+                <div class="textbox">
+                    <label>
+                        <input type="password" placeholder="Old password" name="password">
+                    </label>
+                </div>
+
+                <div class="textbox">
+                    <label>
+                        <input type="password" placeholder="New password" name="newpassword">
+                    </label>
+                </div>
+
+                <div class="textbox">
+                    <label>
+                        <input type="password" placeholder="Re-New password" name="renewpassword">
+                    </label>
+                </div>
+
+                <button type="submit" class="login-btn">Save Password</button>
+                <span th:if="${error!=null}" th:utext="${error}"></span>
+            </form>
+        </div>
+    </div>
+</div>
+<div th:insert="bubble :: bubble"></div>
+</body>
+</html>

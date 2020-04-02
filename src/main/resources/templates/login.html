@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link th:href="@{/css/nav.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/register.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="dark-body">
+    <div th:insert="nav.html :: nav"></div>
+    <div class="hero">
+        <div class="login-back">
+            <div class="login-box">
+                <form th:action="@{/login}" th:object="${userForm}" method="post">
+                    <h1>Login</h1>
+                    <div class="textbox">
+                        <label>
+                            <input type="text" placeholder="Username" name="username">
+                        </label>
+                    </div>
+
+                    <div class="textbox">
+                        <label>
+                            <input type="password" placeholder="Password" name="password">
+                        </label>
+                    </div>
+
+                    <button type="submit" class="login-btn">Sign in</button>
+                    <a class="bb" href="/register"><span>To register</span></a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div th:insert="bubble :: bubble"></div>
+</div>
+</body>
+</html>

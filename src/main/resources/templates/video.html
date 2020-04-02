@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${anime.getName()}"></title>
+    <link th:href="@{/css/nav.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/register.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/video.css}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+</head>
+<body>
+<div th:insert="nav.html :: nav"></div>
+<div class="hero">
+    <main>
+        <div th:if="${video!=null}" class="video">
+            <div class="w3-row">
+                <div class="m9 w3-col">
+                    <div class="player">
+                        <div class="player-video">
+                            <iframe width="100%" height="100%"
+                                    th:src="@{https://online.animedia.tv/embed/{id_anime}/{id_season}/{id_ep}(id_anime=${anime.getAddress()}, id_season=${id_season}, id_ep=${id_ep})}"
+                                    frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="m12 w3-col player-title">
+                        <div class="player-name">
+                            <span th:text="${anime.getName()+', Season '+id_season+', ep '+id_ep}"></span>
+                        </div>
+                    </div>
+                    <div class="m12 w3-col player-title">
+                        <div class="buttons">
+                            <a class="nolink" th:id="join-chat-button-2" th:text="#{profile.addBookmark}" th:href="@{/addtobookmark/{id_anime}/{id_season}/{id_ep}(id_anime=${anime.getId()}, id_season=${id_season}, id_ep=${id_ep})}"></a>
+<!--                            <a th:text="${anime.getName()+', Season '+id_season+', ep '+id_ep}"></a>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="m3 w3-col">
+                    <div class="player-list">
+                        <a th:each="i : ${#numbers.sequence(video.getStart(), video.getSeries())}"
+                           th:href="@{/video/{id_anime}/{id_season}/{id_ep}(id_anime=${anime.getId()}, id_season=${id_season}, id_ep=${i})}">
+                            <div class="player-series"><span th:text="${i}"></span></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="m9 w3-col">
+                    <div class="comments">
+                        <div>
+                            <div class="comment">
+                                <form th:action="@{/sendcomment/{user_id}/{anime_id}/{id_season}/{id_ep}(user_id=${user.getId()}, anime_id=${anime.getId()}, id_season=${id_season}, id_ep=${id_ep})}"
+                                      method="post">
+                                    <div class="textbox">
+                                        <label>
+                                            <textarea width="100%" height="200px" type="text"
+                                                      placeholder="Your comment..." name="comment"></textarea>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="login-btn">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div th:each="c : ${comment}" class="comment">
+                            <div th:text="${c.getUser().getUsername()}" class="com-name"></div>
+                            <div th:text="${c.getText()}" class="com-text"></div>
+                            <div th:text="${c.getDate()}" class="com-date"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<div th:insert="bubble :: bubble"></div>
+</body>
+</html>

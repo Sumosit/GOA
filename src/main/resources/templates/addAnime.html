@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link th:href="@{/css/nav.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/info.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/register.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/admin.css}" rel="stylesheet" type="text/css"/>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+<div th:insert="nav.html :: nav"></div>
+<main>
+    <div class="hero">
+        <div class="w3-row">
+            <form th:action="@{/addanime}" th:object="${animeForm}" method="post">
+                <div class="textbox">
+                    <label>
+                        <input type="text" placeholder="address" name="address">
+                    </label>
+                </div>
+
+                <div class="textbox">
+                    <label>
+                        <input type="text" placeholder="date" name="date">
+                    </label>
+                </div>
+
+                <div class="textbox">
+                    <label>
+                        <input type="text" placeholder="genre" name="genre">
+                    </label>
+                </div>
+
+                <div class="textbox">
+                    <label>
+                        <textarea style="max-width: 100%;" type="text" placeholder="history" name="history"></textarea>
+                    </label>
+                </div>
+
+                <div class="textbox">
+                    <label>
+                        <input type="text" placeholder="image" name="image">
+                    </label>
+                </div>
+
+                <div class="textbox">
+                    <label>
+                        <input type="text" placeholder="links" name="links">
+                    </label>
+                </div>
+
+                <div class="textbox">
+                    <label>
+                        <input type="text" placeholder="name" name="name">
+                    </label>
+                </div>
+
+                <div class="textbox">
+                    <label>
+                        <input type="text" placeholder="producer" name="producer">
+                    </label>
+                </div>
+                <button type="submit" class="login-btn">Add Anime</button>
+                <div class="textbox" style="border: none;">
+                    <label>
+                        <span style="display: block;
+                                    text-align: center;
+                                    margin-top: 20px;
+                                    color: #ffc2ce;
+                                    font-size: 30px;
+                                    padding-top: 10px;
+                                    padding-bottom: 10px;
+                                    border-top: 2px dashed #ffc2ce;
+                                    border-bottom: 2px dashed #ffc2ce;" th:if="${error!=null}" th:utext="${error}"></span>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<div th:insert="bubble :: bubble"></div>
+</body>
+</html>

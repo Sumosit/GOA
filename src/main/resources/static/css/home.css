@@ -1,0 +1,28 @@
+.home > .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 15px;
+    padding: 0 5% 5% 5%;
+    margin-top: 0;
+}
+
+.home > .grid-container > div {
+    background-color: rgba(48, 0, 3, 0);
+    text-align: center;
+    font-size: 30px;
+    padding: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 470px;
+    max-width: 320px;
+}
+img {
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 2px solid #eaeaea;
+}
+img:hover {
+    -webkit-transform: rotateZ(5deg);
+    -ms-transform: rotateZ(5deg);
+    transform: rotateZ(5deg);
+}

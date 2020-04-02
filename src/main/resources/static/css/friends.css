@@ -1,0 +1,43 @@
+.w3-row {
+    color: #d6d6d6;
+}
+
+.w3-col {
+    padding: 5px;
+}
+
+header {
+    font-family: PathwayGothicOne-Regular, sans-serif;
+    font-size: 2vw;
+}
+
+@media screen and (min-width: 600px) {
+    header {
+        font-size: 2vw;
+    }
+}
+@media screen and (max-width: 601px) {
+    header {
+        font-size: 5vw;
+    }
+}
+
+header > span {
+    padding: 5px;
+}
+
+.w3-col > .item1 {
+    width: 100%;
+}
+
+.w3-col > .item2 {
+    width: 100%;
+}
+
+.friend-list {
+}
+
+.friend-list-items{
+    border: 2px solid #eaeaea;
+    padding: 2%;
+}

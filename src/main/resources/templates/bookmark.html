@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link th:href="@{/css/default.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/tooltip.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/home.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/nav.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/bookmark.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div th:insert="nav.html :: nav"></div>
+<div class="hero">
+    <main>
+        <div class="search">
+            <form style="display: flex;" th:action="@{/bookmarksearch/}" method="get">
+                <input th:id="join-chat-button-2" style="display: inline-block;" type="text" th:name="name">
+                <button th:id="join-chat-button-2" style="display: inline-block;" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="home">
+            <div class="grid-container">
+                <div th:each="b : ${bk}" class="tooltip">
+                    <a th:href="@{/video/{id_anime}/{id_season}/{id_ep}(id_anime=${b.getId_anime()}, id_season=${b.getId_season()}, id_ep=${b.getId_ep()})}"><img th:src="${b.getAnime().getImage()}"
+                                                                                  width="100%"
+                                                                                  height="100%" alt=""></a>
+                    <span style="color: #eaeaea;"
+                          th:text="${b.getAnime().getName()}"></span><br>
+                    <span style="color: #eaeaea;"
+                          th:text="#{season} + ' ' + ${b.getId_season()}"></span><br>
+                    <span style="color: #eaeaea;"
+                          th:text="#{episode} + ' ' + ${b.getId_ep()}"></span>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<div th:insert="bubble :: bubble"></div>
+</body>
+</html>

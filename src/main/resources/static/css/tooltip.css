@@ -1,0 +1,51 @@
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120%;
+    background-color: black;
+    color: #b6b6b6;
+    text-align: left;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1000;
+    left: 106%;
+    padding: 15px;
+}
+
+.tooltiptext > span {
+    font-family: PathwayGothicOne-Regular, sans-serif;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    border-width: 17px;
+    border-style: solid;
+    border-color: transparent #b6b6b6 transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltip:active .tooltiptext {
+    visibility: hidden;
+}
+
+.tooltiphistory {
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+.tooltip-scroll {
+    overflow-y: scroll;
+    height: 435px;
+}
