@@ -45,9 +45,10 @@
                         <div class="friend-list">
                             <div class="w3-row">
                                 <header class="w3-col m12">
-                                    <span th:text="#{friends.Peoples}"></span>
+                                    <a th:href="@{/friends/peoples}"><span th:text="#{friends.Peoples}"></span></a>
+                                    <a th:href="@{/friends/requests}"><span th:text="#{friends.Requests}"></span></a>
                                 </header>
-                                <div th:each="u : ${users}" class="w3-col m12">
+                                <div th:if="${tab == 'peoples'}" th:each="u : ${users}" class="w3-col m12">
                                     <div class="friend-list-items w3-row">
                                         <span class="w3-col m12" th:text="${u.getUsername()}"></span>
                                         <span class="w3-col m12" th:text="${u.getEmail()}"></span>

@@ -43,7 +43,7 @@
                                     <a th:each="i : ${#numbers.sequence(v.getStart(), v.getSeries())}"
                                        th:href="@{/video/{id_anime}/{id_season}/{id_ep}(id_anime=${anime.getId()}, id_season=${v.getSeason()}, id_ep=${i})}"
                                        class="m2 w3-col">
-                                        <div>
+                                        <div id="join-chat-button-2">
                                             <span th:text="${i}"></span>
                                         </div>
                                     </a>

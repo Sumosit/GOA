@@ -7,6 +7,9 @@
 
     <nav style="position: fixed;" role='navigation' id="mainnav">
         <br><br><br>
+
+
+
         <ul class="gap">
             <li th:if="${user != null}"><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" th:href="@{/profile}"
                    th:text="${user.getUsername()}"></a></li>
@@ -14,7 +17,7 @@
             <li><a sec:authorize="hasAnyRole('ROLE_MODER', 'ROLE_ADMIN')" th:href="@{/addanime}" th:text="#{nav.addanime}"></a></li>
             <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/home" th:text="#{nav.home}"></a></li>
             <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/bookmark" th:text="#{nav.bookmark}"></a></li>
-            <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/friends" th:text="#{nav.friends}"></a></li>
+            <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" th:href="@{/friends/{tab}(tab='People')}" th:text="#{nav.friends}"></a></li>
             <li><a href="/login" th:text="#{nav.login}"></a></li>
             <li><a href="/register" th:text="#{nav.register}"></a></li>
         </ul>

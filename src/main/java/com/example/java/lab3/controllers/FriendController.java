@@ -27,14 +27,16 @@ public class FriendController {
     @Autowired
     RolesRepository rolesRepository;
 
-    @GetMapping("friends")
+    @GetMapping("friends/{tab}")
     public String friends(Model model,
-                          Authentication auth) {
+                          Authentication auth,
+                          @PathVariable String tab) {
         User user = userService.findByUsername(auth.getName());
         Roles role = rolesRepository.findByRole("ROLE_USER");
         List<User> users = userRepository.findByRoles(role);
         model.addAttribute("user", user);
         model.addAttribute("users", users);
+        model.addAttribute("tab", tab);
         return "friends";
     }
 
@@ -48,7 +50,7 @@ public class FriendController {
         friends.add(friend);
         user.setFriends(friends);
         userRepository.save(user);
-        return "redirect:/friends";
+        return "redirect:/friends/peoples";
     }
 
     @GetMapping("deletefriend/{id_user}")
@@ -60,7 +62,7 @@ public class FriendController {
         friends.remove(friend);
         user.setFriends(friends);
         userRepository.save(user);
-        return "redirect:/friends";
+        return "redirect:/friends/peoples";
     }
 
 }
