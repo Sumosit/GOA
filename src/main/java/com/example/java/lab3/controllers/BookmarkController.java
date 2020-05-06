@@ -46,13 +46,12 @@ public class BookmarkController {
     public String addToBookmark(@PathVariable Long id_anime,
                                 @PathVariable Long id_season,
                                 @PathVariable Long id_ep,
-                                Authentication auth) {
+                                Authentication auth, Model model) {
 
         User user = userService.findByUsername(auth.getName());
         Anime anime = animeRepository.getOne(id_anime);
         Bookmark bk = new Bookmark(null, user, anime, id_anime, id_season, id_ep);
         bookmarkRepository.save(bk);
-
 
         return "redirect:/video/"+id_anime+'/'+id_season+'/'+id_ep;
     }

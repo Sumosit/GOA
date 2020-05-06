@@ -30,11 +30,19 @@
     div.title {
         font-size: 3rem;
     }
+
+    div.history, div.date, div.genre {
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (max-width: 1001px) {
     div.title {
         font-size: 2rem;
+    }
+
+    div.history, div.date, div.genre {
+        font-size: 1rem;
     }
 }
 
@@ -56,9 +64,6 @@
     padding: 1.2% 0 0.5% 0;
 }
 
-div.history, div.date, div.genre {
-    font-size: 1vw;
-}
 
 .item2 > img {
     margin-left: auto;

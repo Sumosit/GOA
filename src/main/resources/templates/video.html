@@ -30,8 +30,9 @@
                     </div>
                     <div class="m12 w3-col player-title">
                         <div class="buttons">
-                            <a class="nolink" th:id="join-chat-button-2" th:text="#{profile.addBookmark}" th:href="@{/addtobookmark/{id_anime}/{id_season}/{id_ep}(id_anime=${anime.getId()}, id_season=${id_season}, id_ep=${id_ep})}"></a>
+                            <a class="nolink" style="text-decoration: none" th:id="join-chat-button-2" th:text="#{profile.addBookmark}" th:href="@{/addtobookmark/{id_anime}/{id_season}/{id_ep}(id_anime=${anime.getId()}, id_season=${id_season}, id_ep=${id_ep})}"></a>
 <!--                            <a th:text="${anime.getName()+', Season '+id_season+', ep '+id_ep}"></a>-->
+                            <span th:class="success">Success!</span>
                         </div>
                     </div>
                 </div>

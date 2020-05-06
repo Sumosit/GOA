@@ -50,9 +50,9 @@ public class AuthController {
     @PostMapping("register")
     public String Register_(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
 
-        if (bindingResult.hasErrors()) {
-            return "register";
-        }
+                if (bindingResult.hasErrors()) {
+                    return "register";
+                }
         userForm.setIsActive("Active");
 
         User user = userService.findByUsername(userForm.getUsername());

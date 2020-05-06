@@ -22,7 +22,7 @@ img {
     border: 2px solid #eaeaea;
 }
 img:hover {
-    -webkit-transform: rotateZ(5deg);
-    -ms-transform: rotateZ(5deg);
-    transform: rotateZ(5deg);
+    -webkit-transform: rotateZ(10deg);
+    -ms-transform: rotateZ(3deg);
+    transform: rotateZ(3deg);
 }

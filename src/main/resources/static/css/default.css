@@ -117,8 +117,8 @@ main {
 }
 
 #join-chat-button-2:hover {
-    -webkit-animation: pulse 2s infinite; /* анимация и скорость в секундах */
-    animation: pulse 2s infinite;
+    -webkit-animation: pulse 0.7s normal; /* анимация и скорость в секундах */
+    animation: pulse 0.7s normal;
 }
 
 @-webkit-keyframes pulse {
@@ -126,7 +126,7 @@ main {
         -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
     }
     70% {
-        -webkit-box-shadow: 0 0 0 0.4vw rgba(0, 0, 0, 0);
+        -webkit-box-shadow: 0 0 0 2vw rgba(0, 0, 0, 0);
     }
     100% {
         -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
@@ -139,11 +139,55 @@ main {
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
     }
     70% {
-        -moz-box-shadow: 0 0 0 0.4vw rgba(0, 0, 0, 0);
-        box-shadow: 0 0 0 0.4vw rgba(0, 0, 0, 0);
+        -moz-box-shadow: 0 0 0 2vw rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 2vw rgba(0, 0, 0, 0);
     }
     100% {
         -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     }
+}
+
+#join-chat-button:hover {
+    -webkit-animation: rubberBand 0.6s ease; /* анимация и скорость в секундах */
+    animation: rubberBand 0.6s ease;
+}
+@keyframes rubberBand {
+    0% {transform: scale(1);}
+    30% {transform: scaleX(1.15) scaleY(0.75);}
+    40% {transform: scaleX(0.75) scaleY(1.25);}
+    60% {transform: scaleX(1.15) scaleY(0.85);}
+    100% {transform: scale(1);}
+}
+
+.lang {
+    position: fixed;
+    display: flex;
+    right: 20px;
+    top: 20px;
+    width: 15px;
+    height: 15px;
+    padding: 1%;
+    background-color: rgb(0, 0, 0);
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid #eaeaea;
+    box-sizing: initial;
+}
+
+.lang > a {
+    text-decoration: none;
+}
+
+.lang > a > span {
+    margin: 0;
+    font-family: PathwayGothicOne-Regular, sans-serif;
+    color: #eaeaea;
+    font-size: 120%;
+}
+
+.success {
+    display: none;
+    color: #69ff00;
 }

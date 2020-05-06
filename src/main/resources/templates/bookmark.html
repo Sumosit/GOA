@@ -24,9 +24,10 @@
         <div class="home">
             <div class="grid-container">
                 <div th:each="b : ${bk}" class="tooltip">
-                    <a th:href="@{/video/{id_anime}/{id_season}/{id_ep}(id_anime=${b.getId_anime()}, id_season=${b.getId_season()}, id_ep=${b.getId_ep()})}"><img th:src="${b.getAnime().getImage()}"
-                                                                                  width="100%"
-                                                                                  height="100%" alt=""></a>
+                    <a th:href="@{/video/{id_anime}/{id_season}/{id_ep}(id_anime=${b.getId_anime()}, id_season=${b.getId_season()}, id_ep=${b.getId_ep()})}">
+                        <img th:src="${b.getAnime().getImage()}"
+                             width="100%"
+                             height="100%" alt=""></a>
                     <span style="color: #eaeaea;"
                           th:text="${b.getAnime().getName()}"></span><br>
                     <span style="color: #eaeaea;"

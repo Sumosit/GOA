@@ -5,19 +5,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
 
+    <lang id="join-chat-button" class="lang">
+        <a href="?lang=eng"><span th:if="#{site.lang} == Русский">RU</span></a>
+        <a href="?lang=ru"><span th:if="#{site.lang} == English">ENG</span></a>
+    </lang>
     <nav style="position: fixed;" role='navigation' id="mainnav">
         <br><br><br>
 
 
-
         <ul class="gap">
             <li th:if="${user != null}"><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" th:href="@{/profile}"
-                   th:text="${user.getUsername()}"></a></li>
-            <li><a sec:authorize="hasAnyRole('ROLE_MODER', 'ROLE_ADMIN')" th:href="@{/admin}" th:text="#{nav.admin}"></a></li>
-            <li><a sec:authorize="hasAnyRole('ROLE_MODER', 'ROLE_ADMIN')" th:href="@{/addanime}" th:text="#{nav.addanime}"></a></li>
+                                           th:text="${user.getUsername()}"></a></li>
+            <li><a sec:authorize="hasAnyRole('ROLE_MODER', 'ROLE_ADMIN')" th:href="@{/admin}"
+                   th:text="#{nav.admin}"></a></li>
+            <li><a sec:authorize="hasAnyRole('ROLE_MODER', 'ROLE_ADMIN')" th:href="@{/addanime}"
+                   th:text="#{nav.addanime}"></a></li>
             <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/home" th:text="#{nav.home}"></a></li>
-            <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/bookmark" th:text="#{nav.bookmark}"></a></li>
-            <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" th:href="@{/friends/{tab}(tab='People')}" th:text="#{nav.friends}"></a></li>
+            <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/bookmark" th:text="#{nav.bookmark}"></a>
+            </li>
+            <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" th:href="@{/friends/{tab}(tab='People')}"
+                   th:text="#{nav.friends}"></a></li>
             <li><a href="/login" th:text="#{nav.login}"></a></li>
             <li><a href="/register" th:text="#{nav.register}"></a></li>
         </ul>
