@@ -119,4 +119,13 @@ public class AnimeController {
 
         return "redirect:/video/"+anime_id+'/'+id_season+'/'+id_ep;
     }
+
+    @GetMapping("delete")
+    public String deleteComment(@RequestParam Long id_comment,
+                                @RequestParam Long anime_id,
+                                @RequestParam Long id_season,
+                                @RequestParam Long id_ep) {
+
+        return "redirect:/video/"+anime_id+'/'+id_season+'/'+id_ep;
+    }
 }

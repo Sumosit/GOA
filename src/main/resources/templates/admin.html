@@ -56,11 +56,11 @@
                     <td>Status</td>
                 </tr>
                 <tr th:each="u : ${users}" th:id="'#'+${u.getId()}">
-                    <td th:if="${u.getIsActive()=='Active'}"><a class="nolink" th:text="${u.getIsActive()}" th:href="@{/admin/ban/{id}(id = ${u.getId()})}"></a></td>
-                    <td th:if="${u.getIsActive()=='Banned'}"><a class="nolink" th:text="${u.getIsActive()}" th:href="@{/admin/unban/{id}(id = ${u.getId()})}"></a></td>
+                    <td th:if="${u.getIsActive()=='Active'}"><a style="text-decoration: none;" th:text="${u.getIsActive()}" th:href="@{/admin/ban/{id}(id = ${u.getId()})}"></a></td>
+                    <td th:if="${u.getIsActive()=='Banned'}"><a style="text-decoration: none;  " th:text="${u.getIsActive()}" th:href="@{/admin/unban/{id}(id = ${u.getId()})}"></a></td>
                     <td th:text="${u.getUsername()}"></td>
                     <td th:text="${u.getEmail()}"></td>
-                    <td><a class="nolink" th:text="Delete" th:href="@{admin/delete/{id}(id = ${u.getId()})}"></a></td>
+                    <td><a style="text-decoration: none;" th:text="Delete" th:href="@{admin/delete/{id}(id = ${u.getId()})}"></a></td>
                 </tr>
             </table>
         </div>

@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    background-image: url('bg2.jpg');
+    background-image: url('bg2.1.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     -webkit-background-size: cover;
@@ -25,7 +25,7 @@ body {
 }
 
 main {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     width: 62.5%;
     display: table;
     margin-left: auto;
@@ -149,8 +149,8 @@ main {
 }
 
 #join-chat-button:hover {
-    -webkit-animation: rubberBand 1s ease; /* анимация и скорость в секундах */
-    animation: rubberBand 1s ease;
+    -webkit-animation: rubberBand 0.5s ease; /* анимация и скорость в секундах */
+    animation: rubberBand 0.5s ease;
 }
 @keyframes rubberBand {
     from {transform: scale(1);}

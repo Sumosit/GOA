@@ -34,6 +34,7 @@
                           th:text="#{season} + ' ' + ${b.getId_season()}"></span><br>
                     <span style="color: #eaeaea;"
                           th:text="#{episode} + ' ' + ${b.getId_ep()}"></span>
+                    <a style="display: block;" th:id="join-chat-button-2" class="delete" th:href="@{/deletebookmark/(id_bookmark=${b.getId()})}">Delete</a>
                 </div>
             </div>
         </div>

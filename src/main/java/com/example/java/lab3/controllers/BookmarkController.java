@@ -56,6 +56,12 @@ public class BookmarkController {
         return "redirect:/video/"+id_anime+'/'+id_season+'/'+id_ep;
     }
 
+    @GetMapping("deletebookmark")
+    public String deleteBookmark(@RequestParam Long id_bookmark) {
+        bookmarkRepository.deleteById(id_bookmark);
+        return "redirect:/bookmark";
+    }
+
     @GetMapping("bookmarksearch")
     public String searchBookmark(Model model,
                                  Authentication auth,

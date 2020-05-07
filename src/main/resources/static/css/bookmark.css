@@ -19,3 +19,13 @@
 
 .home > .grid-container > div > span {
 }
+
+.delete {
+    text-decoration: none;
+    color: #eaeaea;
+    background-color: black;
+    border: 2px solid #eaeaea;
+    border-radius: 5px;
+    font-family: PathwayGothicOne-Regular, sans-serif;
+    padding: 5%;
+}

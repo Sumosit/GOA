@@ -4,11 +4,27 @@
           th:fragment="nav">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
-
-    <lang id="join-chat-button" class="lang">
-        <a href="?lang=eng"><span th:if="#{site.lang} == Русский">RU</span></a>
-        <a href="?lang=ru"><span th:if="#{site.lang} == English">ENG</span></a>
-    </lang>
+    <div style="background: black; height: 100%; width: 5.2%; top: 0; right: 0; position: fixed; border-radius: 5px">
+        <lang id="join-chat-button" class="lang">
+            <a target="_blank" href="?lang=eng"><span th:if="#{site.lang} == Русский">RU</span></a>
+            <a target="_blank" href="?lang=ru"><span th:if="#{site.lang} == English">ENG</span></a>
+        </lang>
+        <lang id="join-chat-button" class="lang" style="top: 80px">
+            <a target="_blank" th:href="@{/empty}"><span>BG</span></a>
+        </lang>
+        <lang id="join-chat-button" class="lang" style="top: 140px">
+            <a target="_blank" th:href="@{https://vk.com/borialox}"><span>VK</span></a>
+        </lang>
+        <lang id="join-chat-button" class="lang" style="top: 200px">
+            <a target="_blank" th:href="@{https://twitter.com/KremlinRussia?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor}"><span>TW</span></a>
+        </lang>
+        <lang id="join-chat-button" class="lang" style="top: 260px">
+            <a target="_blank" th:href="@{#}"><span>TG</span></a>
+        </lang>
+        <lang id="join-chat-button" class="lang" style="top: 320px">
+            <a target="_blank" th:href="@{https://www.instagram.com/putin.life/?hl=ru}"><span>IG</span></a>
+        </lang>
+    </div>
     <nav style="position: fixed;" role='navigation' id="mainnav">
         <br><br><br>
 
@@ -18,9 +34,9 @@
                                            th:text="${user.getUsername()}"></a></li>
             <li><a sec:authorize="hasAnyRole('ROLE_MODER', 'ROLE_ADMIN')" th:href="@{/admin}"
                    th:text="#{nav.admin}"></a></li>
+            <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/home" th:text="#{nav.home}"></a></li>
             <li><a sec:authorize="hasAnyRole('ROLE_MODER', 'ROLE_ADMIN')" th:href="@{/addanime}"
                    th:text="#{nav.addanime}"></a></li>
-            <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/home" th:text="#{nav.home}"></a></li>
             <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/bookmark" th:text="#{nav.bookmark}"></a>
             </li>
             <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" th:href="@{/friends/{tab}(tab='People')}"
