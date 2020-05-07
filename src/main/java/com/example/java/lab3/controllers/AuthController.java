@@ -32,10 +32,10 @@ public class AuthController {
         return "register";
     }
 
-    @GetMapping("/logout")
-    public String Logout() {
-        return "redirect:/login";
-    }
+//    @GetMapping("/logout")
+//    public String Logout() {
+//        return "redirect:/login";
+//    }
 
     @GetMapping("/register/{bad}")
     public String registerBadUsername(Model model,

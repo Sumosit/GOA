@@ -2,14 +2,14 @@ var w = window.innerWidth,
     h = window.innerHeight,
     canvas = document.getElementById('bubble'),
     ctx = canvas.getContext('2d'),
-    rate = 30,
+    rate = 40,
     arc = 100,
     time,
     count,
     size = 7,
     speed = 8,
     lights = new Array,
-    colors = ['white', 'black'];
+    colors = ['black'];
 
 canvas.setAttribute('width', w);
 canvas.setAttribute('height', h);
