@@ -14,11 +14,34 @@ html {
     height: 100%;
 }
 
+.register-animation-enter-active {
+    animation: register-animation-in 3s;
+}
+
+.register-animation-leave-active {
+    animation: register-animation-in 0.5s reverse;
+}
+
+@keyframes register-animation-in {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .login-back {
     background-color: black;
     top: 50%;
     left: 50%;
     position: absolute;
+    animation-name: bounce-2;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
 }
 
 .login-box {
@@ -37,7 +60,8 @@ html {
     margin-left: 30px;
     float: left;
     font-size: 46px;
-    border-bottom: 6px solid rgb(255, 164, 148);
+    /*border-bottom: 6px solid rgb(255, 164, 148);*/
+    border-bottom: 6px solid rgb(255, 255, 255);
     margin-bottom: 50px;
     padding: 13px 0;
 }
@@ -48,7 +72,8 @@ html {
     font-size: 20px;
     padding: 8px 0;
     margin: 8px 30px;
-    border-bottom: 1px solid rgb(255, 164, 148);
+    /*border-bottom: 1px solid rgb(255, 164, 148);*/
+    border-bottom: 1px solid rgb(255, 255, 255);
 }
 
 .textbox i {
@@ -70,7 +95,8 @@ html {
 }
 
 .login-btn:hover {
-    border-color: rgba(255, 192, 203, 0.8);
+    /*border-color: rgba(255, 192, 203, 0.8);*/
+    border-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 20px rgba(255, 255, 255, 0.9);
     outline: 0 none;
 }
@@ -78,7 +104,8 @@ html {
 .login-btn {
     width: 290px;
     background: none;
-    border: 2px solid rgb(255, 164, 148);
+    /*border: 2px solid rgb(255, 164, 148);*/
+    border: 2px solid rgb(255, 255, 255);
     color: white;
     padding: 10px 5px 10px 5px;
     font-size: 18px;
@@ -97,7 +124,8 @@ html {
 }
 
 .bb:hover {
-    color: rgb(255, 164, 148);
+    /*color: rgb(255, 164, 148);*/
+    color: rgb(255, 255, 255);
     outline: white;
     text-decoration: white;
 }
@@ -106,10 +134,31 @@ html {
     display: block;
     text-align: center;
     margin-top: 20px;
-    color: #ffc2ce;
+    /*color: #ffc2ce;*/
+    color: white;
     font-size: 30px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-top: 2px dashed #ffc2ce;
     border-bottom: 2px dashed #ffc2ce;
+}
+
+.fade-enter-active {
+    animation-name: bounce-2;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+}
+.fade-leave-active {
+    animation-name: bounce-1;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes bounce-1 {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(1300px) rotateZ(180deg);}
+}
+@keyframes bounce-2 {
+    0% { transform: translateX(1300px) rotateZ(180deg);}
+    100%   { transform: translateX(0) rotateZ(0deg);}
 }

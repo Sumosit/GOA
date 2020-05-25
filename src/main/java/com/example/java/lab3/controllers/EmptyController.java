@@ -12,4 +12,10 @@ public class EmptyController {
 
         return "empty";
     }
+
+    @GetMapping("q")
+    public String q(Model model) {
+
+        return "q";
+    }
 }

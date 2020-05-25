@@ -160,33 +160,6 @@ main {
     to {transform: scale(1);}
 }
 
-.lang {
-    position: fixed;
-    display: flex;
-    right: 20px;
-    top: 20px;
-    width: 15px;
-    height: 15px;
-    padding: 1%;
-    background-color: rgb(0, 0, 0);
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 2px solid #eaeaea;
-    box-sizing: initial;
-}
-
-.lang > a {
-    text-decoration: none;
-}
-
-.lang > a > span {
-    margin: 0;
-    font-family: PathwayGothicOne-Regular, sans-serif;
-    color: #eaeaea;
-    font-size: 120%;
-}
-
 .success {
     display: none;
     color: #69ff00;

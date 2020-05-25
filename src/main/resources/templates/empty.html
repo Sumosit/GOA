@@ -9,11 +9,21 @@
     <link th:href="@{/css/tooltip.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/home.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/nav.css}" rel="stylesheet" type="text/css"/>
-    <link th:href="@{/css/clock.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/empty.css}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div th:insert="nav.html :: nav"></div>
 <div class="hero">
+    <div class="stage" style="width: 120px; height: 120px;">
+        <div class="cubespinner">
+            <div class="face1">1</div>
+            <div class="face2">2</div>
+            <div class="face3">3</div>
+            <div class="face4">4</div>
+            <div class="face5">5</div>
+            <div class="face6">6</div>
+        </div>
+    </div>
 </div>
 <div th:insert="bubble :: bubble"></div>
 </body>

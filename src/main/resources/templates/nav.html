@@ -4,10 +4,10 @@
           th:fragment="nav">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
-    <div style="background: black; height: 100%; width: 5.2%; top: 0; right: 0; position: fixed; border-radius: 5px">
+    <footer>
         <lang id="join-chat-button" class="lang">
-            <a target="_blank" href="?lang=eng"><span th:if="#{site.lang} == Русский">RU</span></a>
-            <a target="_blank" href="?lang=ru"><span th:if="#{site.lang} == English">ENG</span></a>
+            <a href="?lang=eng"><span th:if="#{site.lang} == Русский">RU</span></a>
+            <a href="?lang=ru"><span th:if="#{site.lang} == English">EN</span></a>
         </lang>
         <lang id="join-chat-button" class="lang" style="top: 80px">
             <a target="_blank" th:href="@{/empty}"><span>BG</span></a>
@@ -24,7 +24,7 @@
         <lang id="join-chat-button" class="lang" style="top: 320px">
             <a target="_blank" th:href="@{https://www.instagram.com/putin.life/?hl=ru}"><span>IG</span></a>
         </lang>
-    </div>
+    </footer>
     <nav style="position: fixed;" role='navigation' id="mainnav">
         <br><br><br>
 

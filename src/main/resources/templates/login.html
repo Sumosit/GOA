@@ -8,34 +8,49 @@
     <link th:href="@{/css/nav.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/register.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/default.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/empty.css}" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 </head>
 <body>
 <div class="dark-body">
     <div th:insert="nav.html :: nav"></div>
-    <div class="hero">
-        <div class="login-back">
-            <div class="login-box">
-                <form th:action="@{/login}" th:object="${userForm}" method="post">
-                    <h1>Login</h1>
-                    <div class="textbox">
-                        <label>
-                            <input type="text" placeholder="Username" name="username">
-                        </label>
-                    </div>
+    <div id="app" class="hero">
+        <button style="display: none;" class="login-btn" v-on:click="show = !show">
+            Переключить
+        </button>
+        <transition name="fade">
+            <div v-if="show" class="login-back">
+                <div class="login-box">
+                    <form th:action="@{/login}" th:object="${userForm}" method="post">
+                        <h1>Login</h1>
+                        <div class="textbox">
+                            <label>
+                                <input type="text" placeholder="Username" name="username">
+                            </label>
+                        </div>
 
-                    <div class="textbox">
-                        <label>
-                            <input type="password" placeholder="Password" name="password">
-                        </label>
-                    </div>
+                        <div class="textbox">
+                            <label>
+                                <input type="password" placeholder="Password" name="password">
+                            </label>
+                        </div>
 
-                    <button type="submit" class="login-btn">Sign in</button>
-                    <a class="bb" href="/register"><span>To register</span></a>
-                </form>
+                        <button v-on:click="show = !show" type="submit" class="login-btn">Sign in</button>
+                        <a v-on:click="show = !show" class="bb" href="/register"><span>To register</span></a>
+                    </form>
+                </div>
             </div>
-        </div>
+        </transition>
     </div>
     <div th:insert="bubble :: bubble"></div>
 </div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            show: true
+        }
+    })
+</script>
 </body>
 </html>
