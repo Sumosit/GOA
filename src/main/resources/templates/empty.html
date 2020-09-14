@@ -10,21 +10,181 @@
     <link th:href="@{/css/home.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/nav.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/empty.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/dance.css}" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 </head>
 <body>
 <div th:insert="nav.html :: nav"></div>
-<div class="hero">
-    <div class="stage" style="width: 120px; height: 120px;">
-        <div class="cubespinner">
-            <div class="face1">1</div>
-            <div class="face2">2</div>
-            <div class="face3">3</div>
-            <div class="face4">4</div>
-            <div class="face5">5</div>
-            <div class="face6">6</div>
-        </div>
+<div id="app" style="background: rgba(0,0,0,0.9)" class="hero">
+    <div>
+        <transition name="coming">
+            <div v-if="show" id="wrapper">
+                <div class="box-area">
+                    <div id="box-front" class="box">
+                        <div class="i1"><img style="height: 170px; width: 130px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i2"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i3"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i4"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i5"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i6"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i7"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i8"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i9"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                    </div>
+                    <div id="box-right" class="box">
+                        <div class="i1"><img style="height: 170px; width: 130px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i2"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i3"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i4"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i5"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i6"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i7"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i8"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i9"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                    </div>
+                    <div id="box-back" class="box">
+                        <div class="i1"><img style="height: 170px; width: 130px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i2"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i3"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i4"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i5"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i6"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i7"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i8"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i9"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                    </div>
+                    <div id="box-left" class="box">
+                        <div class="i1"><img style="height: 170px; width: 130px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i2"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i3"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i4"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i5"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i6"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i7"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i8"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i9"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                    </div>
+                    <div id="box-top" class="box">
+                        <div class="i1"><img style="height: 170px; width: 130px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i2"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i3"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i4"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i5"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i6"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i7"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i8"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i9"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                    </div>
+                    <div id="box-bottom" class="box">
+                        <div class="i1"><img style="height: 170px; width: 130px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i2"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i3"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i4"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i5"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i6"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i7"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i8"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                        <div class="i9"><img style="height: 185px; width: 115px; margin: 5% 17%" src="/image/d.gif">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
     </div>
+    <div>
+        <ul class="dance-btns">
+            <li>
+                <button style="perspective: 300px; position: absolute; display: block;" class="perek"
+                        v-on:click="show = !show">
+                    <span >Switch</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <transition name="coming">
+            <div v-if="show" id="wrapper-dance">
+                <div class="dance-area">
+                    <div id="dance-front" class="dance">
+                        <img style="height: 400px; width: 450px; margin-top: 5%; margin-bottom: 5%"
+                             src="/image/tenor.gif">
+                    </div>
+                    <div id="dance-right" class="dance">
+                        <img style="height: 300px; width: 300px; margin: 15% 15%" src="/image/ric.gif">
+                    </div>
+                    <div id="dance-back" class="dance">
+                        <img style="height: 400px; width: 300px; margin: 5% 15%" src="/image/male.gif">
+                    </div>
+                    <div id="dance-left" class="dance">
+                        <img style="height: 400px; width: 300px; margin: 5% 17%" src="/image/waifu.gif">
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <div th:insert="bubble :: bubble"></div>
 </div>
-<div th:insert="bubble :: bubble"></div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            show: false
+        }
+    })
+</script>
 </body>
 </html>

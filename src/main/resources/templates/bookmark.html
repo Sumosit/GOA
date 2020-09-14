@@ -4,7 +4,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Bookmarks</title>
     <link th:href="@{/css/default.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/tooltip.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/home.css}" rel="stylesheet" type="text/css"/>
@@ -18,7 +18,7 @@
         <div class="search">
             <form style="display: flex;" th:action="@{/bookmarksearch/}" method="get">
                 <input th:id="join-chat-button-2" style="display: inline-block;" type="text" th:name="name">
-                <button th:id="join-chat-button-2" style="display: inline-block;" type="submit">Search</button>
+                <button th:id="join-chat-button-2" style="display: inline-block;" type="submit" th:text="#{home.search}"></button>
             </form>
         </div>
         <div class="home">

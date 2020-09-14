@@ -69,7 +69,7 @@ html, body, .hero {
 
 .gap {
     color: white;
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
 h1 span {
@@ -79,26 +79,27 @@ h1 span {
     color: orange;
 }
 
-@media screen and (min-width: 1780px) {
-    footer {
-        display: flex;
-    }
-}
+/*@media screen and (min-width: 1780px) {*/
+/*    footer {*/
+/*        display: flex;*/
+/*    }*/
+/*}*/
 
-@media screen and (max-width: 1781px) {
-    footer {
-        display: none;
-    }
-}
+/*@media screen and (max-width: 1781px) {*/
+/*    footer {*/
+/*        display: none;*/
+/*    }*/
+/*}*/
 
 footer {
     background: rgba(0,0,0,0.9);
     height: 100%;
-    width: 5.2%;
+    width: 100px;
     top: 0;
     right: 0;
     position: fixed;
-    border-radius: 5px
+    border-radius: 5px;
+    z-index: 999999;
 }
 
 .lang {
@@ -108,7 +109,7 @@ footer {
     top: 20px;
     width: 15px;
     height: 15px;
-    padding: 1%;
+    padding: 20px;
     background-color: rgba(0, 0, 0, 1);
     align-items: center;
     justify-content: center;
@@ -126,4 +127,97 @@ footer {
     font-family: PathwayGothicOne-Regular, sans-serif;
     color: #eaeaea;
     font-size: 120%;
+}
+
+.fot {
+    position: fixed;
+    top: 40%;
+    width: 20px;
+    height: 100px;
+    rotation: 90deg;
+    background: black;
+    border: 2px solid #eaeaea;
+    border-radius: 10px 4px 4px 10px;
+
+
+}
+
+.fot-closed {
+    right: 0px;
+    transform-style: preserve-3d;
+    animation-name: shadow;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    z-index: 99999;
+}
+.fot-opened {
+    right: 100px;
+    transform-style: preserve-3d;
+    animation-name: shadow;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    z-index: 99999;
+}
+
+@keyframes shadow {
+    from, to { box-shadow: -10px -40px 100px 100px rgba(0,0,0,1); }
+    50% { box-shadow: -10px 40px 100px 100px rgba(0,0,0,1); }
+}
+
+.footerAnimClosed-enter-active {
+    animation-name: f-2;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+.footerAnimClosed-leave-active {
+    animation-name: f-1;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes f-1 {
+    0% {
+        transform: translateX(-100px);
+    }
+    100% {
+        transform: translateX(1400px) rotateZ(180deg);
+    }
+}
+@keyframes f-2 {
+    0% {
+        transform: translateX(1400px) rotateZ(180deg);
+    }
+    100% {
+        transform: translateX(-100px) rotateZ(0deg);
+    }
+}
+
+.footerAnimOpened-enter-active {
+    animation-name: fo-2;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+.footerAnimOpened-leave-active {
+    animation-name: fo-1;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fo-1 {
+    0% {
+        transform: translateX(100px);
+    }
+    100% {
+        transform: translateX(1400px) rotateZ(180deg);
+    }
+}
+@keyframes fo-2 {
+    0% {
+        transform: translateX(1400px) rotateZ(180deg);
+    }
+    100% {
+        transform: translateX(100px) rotateZ(0deg);
+    }
 }

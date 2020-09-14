@@ -1,0 +1,363 @@
+#wrapper-dance {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    perspective: 1200px;
+}
+
+.dance-area {
+    position: relative;
+    transform-style: preserve-3d;
+    animation-name: rotate;
+    animation-duration: 12s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate3d(0, 0, 0, 0);
+    }
+    100% {
+        transform: rotate3d(0, 1, 0, 360deg);
+    ;
+    }
+}
+
+.dance {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background-image: linear-gradient(to left bottom, #000000, #0e0e0e, #171717, #1f1f1f, #272727);}
+
+.dance-area > div > div {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    /*border: 5px solid #000000;*/
+}
+
+#dance-front > .i1 {
+    color: white;
+    top: 0;
+    left: 0;
+}
+#dance-front > .i2 {
+    color: white;
+    top: 0;
+    left: 150px;
+}
+#dance-front > .i3 {
+    color: white;
+    top: 0;
+    left: 300px;
+}
+#dance-front > .i4 {
+    color: white;
+    top: 150px;
+    left: 0;
+}
+#dance-front > .i5 {
+    color: white;
+    top: 150px;
+    left: 150px;
+}
+#dance-front > .i6 {
+    color: white;
+    top: 150px;
+    left: 300px;
+}
+#dance-front > .i7 {
+    color: white;
+    top: 300px;
+    left: 0;
+}
+#dance-front > .i8 {
+    color: white;
+    top: 300px;
+    left: 150px;
+}
+#dance-front > .i9 {
+    color: white;
+    top: 300px;
+    left: 300px;
+}
+
+#dance-back > .i1 {
+    color: white;
+    top: 0;
+    left: 0;
+}
+#dance-back > .i2 {
+    color: white;
+    top: 0;
+    left: 150px;
+}
+#dance-back > .i3 {
+    color: white;
+    top: 0;
+    left: 300px;
+}
+#dance-back > .i4 {
+    color: white;
+    top: 150px;
+    left: 0;
+}
+#dance-back > .i5 {
+    color: white;
+    top: 150px;
+    left: 150px;
+}
+#dance-back > .i6 {
+    color: white;
+    top: 150px;
+    left: 300px;
+}
+#dance-back > .i7 {
+    color: white;
+    top: 300px;
+    left: 0;
+}
+#dance-back > .i8 {
+    color: white;
+    top: 300px;
+    left: 150px;
+}
+#dance-back > .i9 {
+    color: white;
+    top: 300px;
+    left: 300px;
+}
+
+#dance-right > .i1 {
+    color: white;
+    top: 0;
+    left: 0;
+}
+#dance-right > .i2 {
+    color: white;
+    top: 0;
+    left: 150px;
+}
+#dance-right > .i3 {
+    color: white;
+    top: 0;
+    left: 300px;
+}
+#dance-right > .i4 {
+    color: white;
+    top: 150px;
+    left: 0;
+}
+#dance-right > .i5 {
+    color: white;
+    top: 150px;
+    left: 150px;
+}
+#dance-right > .i6 {
+    color: white;
+    top: 150px;
+    left: 300px;
+}
+#dance-right > .i7 {
+    color: white;
+    top: 300px;
+    left: 0;
+}
+#dance-right > .i8 {
+    color: white;
+    top: 300px;
+    left: 150px;
+}
+#dance-right > .i9 {
+    color: white;
+    top: 300px;
+    left: 300px;
+}
+
+#dance-left > .i1 {
+    color: white;
+    top: 0;
+    left: 0;
+}
+#dance-left > .i2 {
+    color: white;
+    top: 0;
+    left: 150px;
+}
+#dance-left > .i3 {
+    color: white;
+    top: 0;
+    left: 300px;
+}
+#dance-left > .i4 {
+    color: white;
+    top: 150px;
+    left: 0;
+}
+#dance-left > .i5 {
+    color: white;
+    top: 150px;
+    left: 150px;
+}
+#dance-left > .i6 {
+    color: white;
+    top: 150px;
+    left: 300px;
+}
+#dance-left > .i7 {
+    color: white;
+    top: 300px;
+    left: 0;
+}
+#dance-left > .i8 {
+    color: white;
+    top: 300px;
+    left: 150px;
+}
+#dance-left > .i9 {
+    color: white;
+    top: 300px;
+    left: 300px;
+}
+
+#dance-top > .i1 {
+    color: white;
+    top: 0;
+    left: 0;
+}
+#dance-top > .i2 {
+    color: white;
+    top: 0;
+    left: 150px;
+}
+#dance-top > .i3 {
+    color: white;
+    top: 0;
+    left: 300px;
+}
+#dance-top > .i4 {
+    color: white;
+    top: 150px;
+    left: 0;
+}
+#dance-top > .i5 {
+    color: white;
+    top: 150px;
+    left: 150px;
+}
+#dance-top > .i6 {
+    color: white;
+    top: 150px;
+    left: 300px;
+}
+#dance-top > .i7 {
+    color: white;
+    top: 300px;
+    left: 0;
+}
+#dance-top > .i8 {
+    color: white;
+    top: 300px;
+    left: 150px;
+}
+#dance-top > .i9 {
+    color: white;
+    top: 300px;
+    left: 300px;
+}
+
+#dance-bottom > .i1 {
+    color: white;
+    top: 0;
+    left: 0;
+}
+#dance-bottom > .i2 {
+    color: white;
+    top: 0;
+    left: 150px;
+}
+#dance-bottom > .i3 {
+    color: white;
+    top: 0;
+    left: 300px;
+}
+#dance-bottom > .i4 {
+    color: white;
+    top: 150px;
+    left: 0;
+}
+#dance-bottom > .i5 {
+    color: white;
+    top: 150px;
+    left: 150px;
+}
+#dance-bottom > .i6 {
+    color: white;
+    top: 150px;
+    left: 300px;
+}
+#dance-bottom > .i7 {
+    color: white;
+    top: 300px;
+    left: 0;
+}
+#dance-bottom > .i8 {
+    color: white;
+    top: 300px;
+    left: 150px;
+}
+#dance-bottom > .i9 {
+    color: white;
+    top: 300px;
+    left: 300px;
+}
+
+#dance-front > div {
+    background-image: linear-gradient(to left bottom, #ff0000, #d0000b, #a2000d, #76000a, #4c0000);
+}
+#dance-back > div {
+    background-image: linear-gradient(to left bottom, #ffa600, #cd8900, #9f6c00, #745001, #4c3500);
+}
+#dance-right > div {
+    background-image: linear-gradient(to left bottom, #000bff, #000acf, #0007a1, #000575, #03004c);
+}
+#dance-left > div {
+    background-image: linear-gradient(to left bottom, #7aff00, #5acf06, #3ca106, #227503, #0a4c00);
+}
+#dance-top > div {
+    background-image: linear-gradient(to left bottom, #ffffff, #dfdfdf, #c0c0c0, #a2a2a2, #858585);
+}
+#dance-bottom > div {
+    background-image: linear-gradient(to left bottom, #ffff00, #cfcf00, #a1a100, #757500, #4c4c00);
+}
+
+#dance-front {
+    transform: translateX(-225px) translateY(-225px) translateZ(225px);
+}
+
+#dance-back {
+    transform: translateX(-225px) translateY(-225px) translateZ(-225px);
+}
+
+#dance-right {
+    transform: translateY(-225px) rotateY(90deg);
+}
+
+#dance-left {
+    transform: translateY(-225px) translateX(-450px) rotateY(90deg);
+}
+
+#dance-top {
+    transform: translateX(-225px) translateY(-450px) rotateX(90deg);
+}
+
+#dance-bottom {
+    transform: translateX(-225px) rotateX(90deg);
+}
+
+.dance-area {
+    transform: rotateX(90deg) rotateY(90deg);
+}
+
+    

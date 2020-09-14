@@ -43,9 +43,10 @@ public class AnimeController {
     public String Home(Model model, Authentication auth) {
 
         List<Anime> anime = animeRepository.findAll();
-        User user = userService.findByUsername(auth.getName());
-
-        model.addAttribute("user", user);
+        if (auth != null) {
+            User user = userService.findByUsername(auth.getName());
+            model.addAttribute("user", user);
+        }
         model.addAttribute("anime", anime);
         return "home";
     }
@@ -120,12 +121,29 @@ public class AnimeController {
         return "redirect:/video/"+anime_id+'/'+id_season+'/'+id_ep;
     }
 
-    @GetMapping("delete")
-    public String deleteComment(@RequestParam Long id_comment,
-                                @RequestParam Long anime_id,
-                                @RequestParam Long id_season,
-                                @RequestParam Long id_ep) {
+    @GetMapping("delete_comment/{id}/{id_anime}/{id_season}/{id_ep}")
+    public String deleteComment(@PathVariable Long id,
+                                @PathVariable Long id_anime,
+                                @PathVariable Long id_season,
+                                @PathVariable Long id_ep) {
+        commentRepository.deleteById(id);
+        return "redirect:/video/"+id_anime+'/'+id_season+'/'+id_ep;
+    }
 
-        return "redirect:/video/"+anime_id+'/'+id_season+'/'+id_ep;
+    @GetMapping("admin_anime")
+    public String adminAnime(Model model, Authentication auth) {
+
+        List<Anime> anime = animeRepository.findAll();
+        User user = userService.findByUsername(auth.getName());
+
+        model.addAttribute("user", user);
+        model.addAttribute("anime", anime);
+        return "adminAnime";
+    }
+
+    @GetMapping("delete_anime/{id}")
+    public String deleteAnime(@PathVariable Long id) {
+        animeRepository.deleteById(id);
+        return "redirect:/admin_anime";
     }
 }

@@ -12,12 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
-
-import java.util.Locale;
 
 @Configuration
 @EnableWebSecurity
@@ -35,10 +29,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/css/*", "/image/*", "/js/*", "/font/*").permitAll()
-                .antMatchers("/register/*", "/register", "/video/**", "/css/*", "/empty", "/q").permitAll()
+                .antMatchers("/home", "/css/*", "/image/*", "/js/*", "/font/*").permitAll()
+                .antMatchers("/register/*", "/register", "/video/**", "/css/*", "/empty", "/q", "/Lab1_home").permitAll()
+                .antMatchers("/Lab1/**").permitAll()
                 .antMatchers("/manga/**", "/css/*").permitAll()
-                .antMatchers("/home", "/profile", "/info/*", "/animesearch/*", "/video/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/profile", "/info/*", "/animesearch/*", "/video/**").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/admin").hasAnyRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()

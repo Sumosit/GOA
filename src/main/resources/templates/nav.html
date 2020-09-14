@@ -4,42 +4,61 @@
           th:fragment="nav">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
-    <footer>
-        <lang id="join-chat-button" class="lang">
-            <a href="?lang=eng"><span th:if="#{site.lang} == Русский">RU</span></a>
-            <a href="?lang=ru"><span th:if="#{site.lang} == English">EN</span></a>
-        </lang>
-        <lang id="join-chat-button" class="lang" style="top: 80px">
-            <a target="_blank" th:href="@{/empty}"><span>BG</span></a>
-        </lang>
-        <lang id="join-chat-button" class="lang" style="top: 140px">
-            <a target="_blank" th:href="@{https://vk.com/borialox}"><span>VK</span></a>
-        </lang>
-        <lang id="join-chat-button" class="lang" style="top: 200px">
-            <a target="_blank" th:href="@{https://twitter.com/KremlinRussia?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor}"><span>TW</span></a>
-        </lang>
-        <lang id="join-chat-button" class="lang" style="top: 260px">
-            <a target="_blank" th:href="@{#}"><span>TG</span></a>
-        </lang>
-        <lang id="join-chat-button" class="lang" style="top: 320px">
-            <a target="_blank" th:href="@{https://www.instagram.com/putin.life/?hl=ru}"><span>IG</span></a>
-        </lang>
-    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script
+            src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js">
+    </script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js">
+    </script>
+    <div id="footer">
+        <transition name="footerAnimClosed">
+            <button v-if="fot === false" class="fot fot-closed" v-on:click="fot = !fot"></button>
+        </transition>
+        <transition name="footerAnimOpened">
+            <button v-if="fot === true" class="fot fot-opened" v-on:click="fot = !fot"></button>
+        </transition>
+        <transition name="fade">
+            <footer v-if="fot">
+                <div>
+                    <lang id="join-chat-button" class="lang">
+                        <a href="?lang=eng"><span th:if="#{site.lang} == Русский">RU</span></a>
+                        <a href="?lang=ru"><span th:if="#{site.lang} == English">EN</span></a>
+                    </lang>
+                    <lang id="join-chat-button" class="lang" style="top: 80px">
+                        <a th:href="@{/empty}"><span>BG</span></a>
+                    </lang>
+                    <lang id="join-chat-button" class="lang" style="top: 140px">
+                        <a target="_blank" th:href="@{https://vk.com/borialox}"><span>VK</span></a>
+                    </lang>
+                    <lang id="join-chat-button" class="lang" style="top: 200px">
+                        <a target="_blank"
+                           th:href="@{https://twitter.com/KremlinRussia?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor}"><span>TW</span></a>
+                    </lang>
+                    <lang id="join-chat-button" class="lang" style="top: 260px">
+                        <a target="_blank" th:href="@{#}"><span>TG</span></a>
+                    </lang>
+                    <lang id="join-chat-button" class="lang" style="top: 320px">
+                        <a target="_blank" th:href="@{https://www.instagram.com/putin.life/?hl=ru}"><span>IG</span></a>
+                    </lang>
+                </div>
+            </footer>
+        </transition>
+    </div>
     <nav style="position: fixed;" role='navigation' id="mainnav">
         <br><br><br>
-
-
         <ul class="gap">
             <li th:if="${user != null}"><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" th:href="@{/profile}"
                                            th:text="${user.getUsername()}"></a></li>
             <li><a sec:authorize="hasAnyRole('ROLE_MODER', 'ROLE_ADMIN')" th:href="@{/admin}"
                    th:text="#{nav.admin}"></a></li>
             <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/home" th:text="#{nav.home}"></a></li>
+            <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin_anime" th:text="ADMIN-ANIME"></a></li>
             <li><a sec:authorize="hasAnyRole('ROLE_MODER', 'ROLE_ADMIN')" th:href="@{/addanime}"
                    th:text="#{nav.addanime}"></a></li>
             <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/bookmark" th:text="#{nav.bookmark}"></a>
             </li>
-            <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" th:href="@{/friends/{tab}(tab='People')}"
+            <li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" th:href="@{/friends/{tab}(tab='peoples')}"
                    th:text="#{nav.friends}"></a></li>
             <li><a href="/login" th:text="#{nav.login}"></a></li>
             <li><a href="/register" th:text="#{nav.register}"></a></li>
@@ -52,4 +71,12 @@
     </div>
 
     <script type="text/javascript" src="/js/show.js"></script>
+    <script>
+        new Vue({
+            el: '#footer',
+            data: {
+                fot: false
+            }
+        })
+    </script>
 </th:block>

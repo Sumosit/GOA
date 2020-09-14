@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Check page</title>
+    <link th:href="@{/css/nav.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/register.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/empty.css}" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+</head>
+<body>
+<div class="dark-body">
+    <div th:insert="nav.html :: nav"></div>
+    <div id="app" class="hero">
+        <button style="display: none;" class="login-btn" v-on:click="show = !show">
+            Переключить
+        </button>
+        <transition name="fade">
+            <div v-if="show" class="login-back">
+                <div class="login-box" style="padding: 50px 60px 60px;border-radius: 30%">
+                    <div style="font-size: 50px; text-align: center;">
+                        Money : <span th:text="${money}+'$'"></span>
+                    </div>
+                    <div style="padding-top: 10px;">
+                        <form th:action="@{/Lab1/upBalance}" method="post">
+                            <div class="textbox" style="width: 298.5px">
+                                <label>
+                                    <input style="display: none" th:value="${id}" name="id">
+                                    <input style="text-align: center; font-size: 40px;" type="text" placeholder="Top up balance" name="up">
+                                </label>
+                            </div>
+                            <button class="login-btn" style="font-size: 30px" type="submit">Top up balance</button>
+                        </form>
+                        <form th:action="@{/Lab1/downBalance}" method="post">
+                            <div class="textbox" style="width: 298.5px">
+                                <label>
+                                    <input style="display: none" th:value="${id}" name="id">
+                                    <input style="text-align: center; font-size: 40px;" type="text" placeholder="Withdraw money" name="down">
+                                </label>
+                            </div>
+                            <button class="login-btn" style="font-size: 30px" type="submit">Withdraw money</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <div th:insert="bubble :: bubble"></div>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            show: true,
+            hover: false
+        }
+    })
+</script>
+<script>
+</script>
+</body>
+</html>

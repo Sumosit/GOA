@@ -16,11 +16,13 @@
     height: 470px;
     max-width: 320px;
 }
+
 img {
     border-radius: 10px;
     transition: all 0.3s ease;
     border: 2px solid #eaeaea;
 }
+
 img:hover {
     -webkit-transform: rotateZ(10deg);
     -ms-transform: rotateZ(3deg);

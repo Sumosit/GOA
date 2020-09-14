@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title th:text="${anime.getName()}"></title>
@@ -64,7 +66,7 @@
                             <div th:text="${c.getUser().getUsername()}" class="com-name"></div>
                             <div th:text="${c.getText()}" class="com-text"></div>
                             <div th:text="${c.getDate()}" class="com-date"></div>
-                            <a><div th:text="Delete" class="nolink" style="width: 170px"></div></a>
+                            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/delete_comment/{id}/{anime_id}/{id_season}/{id_ep}(id=${c.getId()}, anime_id=${anime.getId()}, id_season=${id_season}, id_ep=${id_ep})}"><div th:text="Delete" class="nolink" style="width: 170px"></div></a>
                         </div>
                     </div>
                 </div>

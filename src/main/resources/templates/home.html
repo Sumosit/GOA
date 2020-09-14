@@ -18,7 +18,7 @@
         <div class="search">
             <form style="display: flex;" th:action="@{/animesearch/}" method="get">
                 <input style="display: inline-block;" type="text" th:name="name">
-                <button th:id="join-chat-button-2" style="display: inline-block;" type="submit">Search</button>
+                <button th:id="join-chat-button-2" style="display: inline-block;" type="submit" th:text="#{home.search}"></button>
             </form>
         </div>
         <div class="home">
@@ -30,6 +30,8 @@
                             <span class="tooltiphistory" th:utext="${a.getHistory()}"></span>
                         </div>
                     </div>
+
+
                     <a th:href="@{/info/{id}(id = ${a.getId()})}"><img th:id="join-chat-button-2"
                                                                        th:src="${a.getImage()}" width="100%"
                                                                        height="100%" alt=""></a>

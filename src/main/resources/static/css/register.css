@@ -143,22 +143,3 @@ html {
     border-bottom: 2px dashed #ffc2ce;
 }
 
-.fade-enter-active {
-    animation-name: bounce-2;
-    animation-duration: 0.4s;
-    animation-timing-function: ease-in-out;
-}
-.fade-leave-active {
-    animation-name: bounce-1;
-    animation-duration: 0.4s;
-    animation-timing-function: ease-in-out;
-}
-
-@keyframes bounce-1 {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(1300px) rotateZ(180deg);}
-}
-@keyframes bounce-2 {
-    0% { transform: translateX(1300px) rotateZ(180deg);}
-    100%   { transform: translateX(0) rotateZ(0deg);}
-}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="anime in animes" @click="showFriend(anime)">{{ anime.id }}</li>
+    </ul>
+
+    <div class="details" v-show="showDetails">
+        <h2>Anime Details</h2>
+        <p>
+            <a :href="'http://www.twitter.com/' + selectedAnime.id" target="_blank">
+                @{{ selectedAnime.id }} - {{ selectedAnime.name }}
+            </a>
+        </p>
+    </div>
+</div>
+
+<script>
+    const apiURL = "http://localhost:43392/api/twitter";
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                animes: [],
+                showDetails: false,
+                selectedAnime: ''
+            }
+        },
+        methods: {
+            showFriend(anime) {
+                this.selectedAnime = anime;
+                this.showDetails = true;
+            }
+        },
+        created() {
+            fetch(apiURL)
+                .then(response => {
+                    return response.json();
+                })
+                .then(animes => {
+                    this.animes = animes;
+                })
+        }
+    });
+</script>
+
+</body>
+</html>
