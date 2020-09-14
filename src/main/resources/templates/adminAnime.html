@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link th:href="@{/css/default.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/tooltip.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/home.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/nav.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/clock.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div th:insert="nav.html :: nav"></div>
+<div class="hero">
+    <main>
+        <div class="home">
+            <table style="font-size: 20px ;padding: 10px; color: white; font-family: 'PathwayGothicOne-Regular', Arial, sans-serif";>
+                <tr>
+                    <td style="padding: 20px;">Id</td>
+                    <td style="padding: 20px;">Name</td>
+                </tr>
+                <div th:each="a : ${anime}">
+                    <tr>
+                        <td style="padding: 20px;"><span th:text="${a.getName()}"></span></td>
+                        <td style="padding: 20px;"><a style="padding: 10px 17px;" class="nolink" th:href="@{/delete_anime/{id}(id=${a.getId()})}">Delete</a></td>
+                    </tr>
+                </div>
+            </table>
+        </div>
+    </main>
+</div>
+<div th:insert="bubble :: bubble"></div>
+</body>
+</html>
